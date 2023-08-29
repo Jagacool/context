@@ -1,8 +1,6 @@
 import "./App.css";
 import { AddColor } from "./AddColor";
-import { Routes, Route, Link, useNavigate, Navigate } from "react-router-dom";
 import { ProductList } from "./ProductList";
-import { useState, useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
