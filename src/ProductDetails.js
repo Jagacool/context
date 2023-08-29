@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious"; // Removed unused import
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import { useState, useEffect } from "react";
 import { API } from "./global";
 
@@ -14,7 +14,7 @@ export function ProductDetails() {
     })
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, []);
+  }, [productid]); // Add productid to the dependency array
 
   const navigate = useNavigate();
   return (
