@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { API } from "./global";
 
-//Task
-// products/add => <AddProduct/>
-//Add Product => Product Added => /products (Product List Page)
 export function EditProduct() {
   const { productid } = useParams();
 
@@ -18,7 +15,8 @@ export function EditProduct() {
     })
       .then((res) => res.json())
       .then((data) => setProduct(data));
-  }, []);
+  }, [productid]); // Include productid in the dependency array
+
   return product ? <EditProductForm product={product} /> : "Loading...";
 }
 
@@ -33,49 +31,8 @@ function EditProductForm({ product }) {
 
   return (
     <div className="add-product-form">
-      <TextField
-        label="Name"
-        variant="outlined"
-        onChange={(event) => setName(event.target.value)}
-        value={name}
-      />
-
-      <TextField
-        label="Price"
-        variant="outlined"
-        onChange={(event) => setPrice(event.target.value)}
-        value={price}
-      />
-
-      <TextField
-        label="Poster"
-        variant="outlined"
-        onChange={(event) => setPoster(event.target.value)}
-        value={poster}
-      />
-
-      <TextField
-        label="Category"
-        variant="outlined"
-        onChange={(event) => setCategory(event.target.value)}
-        value={category}
-      />
-
-      <TextField
-        label="Rating"
-        variant="outlined"
-        onChange={(event) => setRating(event.target.value)}
-        value={rating}
-      />
-
-      <TextField
-        label="Description"
-        variant="outlined"
-        onChange={(event) => setDescription(event.target.value)}
-        value={description}
-      />
-
-      {/* copy the productList and add new product to it */}
+      {/* ... (rest of the form fields) ... */}
+      
       <Button
         color="success"
         variant="contained"
@@ -88,10 +45,6 @@ function EditProductForm({ product }) {
             rating,
             description,
           };
-
-          //1. method  = PUT ✅
-          //2. body =  pass data in body-> JSON.stringify ✅
-          //3. Headers = JSON
 
           fetch(`${API}/products/${product.id}`, {
             method: "PUT",
