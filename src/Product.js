@@ -5,14 +5,12 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { IconButton } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
+
 export function Product({ product, id, deleteButton, editButton }) {
   const [show, setShow] = useState(true);
 
   const styles = {
     color: product.rating > 8 ? "green" : "red",
-  };
-  const Summarystyles = {
-    display: show ? "block" : "none",
   };
 
   const navigate = useNavigate();
@@ -34,10 +32,6 @@ export function Product({ product, id, deleteButton, editButton }) {
       >
         {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
       </IconButton>
-      {/* <button onClick={() => setShow(!show)}>Toggle Description</button> */}
-      {/* <Button variant="contained" onClick={() => navigate("/products/" + id)}>
-        Info
-      </Button> */}
       <IconButton
         aria-label="info"
         color="primary"
@@ -46,9 +40,6 @@ export function Product({ product, id, deleteButton, editButton }) {
         <InfoIcon />
       </IconButton>
       <br /> <br />
-      {/* <p style={Summarystyles} className="product-description">
-              {product.description}
-            </p> */}
       {show ? (
         <p className="product-description">{product.description}</p>
       ) : null}
