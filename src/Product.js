@@ -16,7 +16,7 @@ export function Product({ product, id, deleteButton, editButton }) {
   const navigate = useNavigate();
   return (
     <div className="product-container">
-      <img className="product-poster" src={product.poster} />
+      <img className="product-poster" src={product.poster} alt={`${product.name} Poster`} />
       <div className="product-spec">
         <h2 className="product-name">
           {product.name} - {id}
