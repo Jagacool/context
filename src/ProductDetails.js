@@ -1,13 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
-import SendIcon from "@mui/icons-material/Send";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious"; // Removed unused import
 import { useState, useEffect } from "react";
 import { API } from "./global";
+
 export function ProductDetails() {
   const { productid } = useParams();
-  // const product = productList[productid];
-  // console.log(productList[productid]);
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -26,9 +24,9 @@ export function ProductDetails() {
         height="450"
         src={product.trailer}
         title="Lenovo Tab M10 HD (2nd gen) Product Tour – Get more"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
       <div className="product-detail-container">
         <div className="product-detail-spec">
